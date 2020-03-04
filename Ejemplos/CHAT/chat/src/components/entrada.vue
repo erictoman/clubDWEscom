@@ -47,7 +47,12 @@ export default {
       this.modalActivo = false;
     },
     accept() {
-      this.$emit("registrar", this.nombre);
+      if (this.nombre != "" && this.nombre.length > 5) {
+        this.modalActivo = false;
+        this.$emit("registrar", this.nombre);
+      } else {
+        alert("Error: El nombre del usuario debe ser mayor a 5 caracteres");
+      }
     }
   }
 };

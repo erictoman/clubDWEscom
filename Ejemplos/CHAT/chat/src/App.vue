@@ -1,15 +1,21 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <entrada />
+    <chat />
+    <entrada @registrar="this.verNombre" />
   </div>
 </template>
 
 <script>
 import entrada from "./components/entrada";
+import chat from "./components/chat";
 export default {
   name: "App",
-  components: { entrada }
+  components: { entrada, chat },
+  methods: {
+    verNombre(nombre) {
+      alert(nombre);
+    }
+  }
 };
 </script>
 
